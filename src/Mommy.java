@@ -2,14 +2,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by bsayler on 5/4/17.
- */
 public class Mommy {
-    public String mommyficar(String word) {
+    private final List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
+
+    public String mommy(String word) {
 
         String result = "";
-
         String previous = "";
 
         for (String letter : word.split("")) {
@@ -28,8 +26,17 @@ public class Mommy {
     }
 
     public boolean isVowel(String letter) {
-        List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
-
         return vowelList.contains(letter);
+    }
+
+    public boolean vowelsGreaterThanOneThird(String word) {
+        double count = 0;
+
+        for (String letter : word.split("")) {
+            if (isVowel(letter)) {
+                count++;
+            }
+        }
+        return Math.round(count / word.length()) > 0.33;
     }
 }
