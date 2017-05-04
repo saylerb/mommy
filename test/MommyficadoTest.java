@@ -1,0 +1,20 @@
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class MommyficadoTest {
+    @Test
+
+    public void shouldNotMommyficarEmtpyString() {
+        Mommy mommy = new Mommy();
+
+        assertEquals("", mommy.mommyficar(""));
+    }
+
+    @Test
+    public void shuldMommyficarASingleVowel() throws Exception {
+        Mommy mommy = new Mommy();
+
+        assertEquals("mommy", mommy.mommyficar("a"));
+    }
+}
