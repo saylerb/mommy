@@ -52,5 +52,16 @@ public class MommyTest {
         Mommy mommy = new Mommy();
 
         assertEquals("his", mommy.mommy("his"));
+        assertEquals("sigh", mommy.mommy("sigh"));
+        assertEquals("cash", mommy.mommy("cash"));
+    }
+
+    @Test
+    public void shouldMommyWordWhenVowelIsGreaterThanOneThirdTheLengthOfString() {
+        Mommy mommy = new Mommy();
+
+        assertEquals("hmommyr", mommy.mommy("hear"));
+        assertEquals("smommym", mommy.mommy("seem"));
+        assertEquals("bmommyt", mommy.mommy("beat"));
     }
 }

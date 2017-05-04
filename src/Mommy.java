@@ -6,7 +6,6 @@ public class Mommy {
     private final List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
 
     public String mommy(String word) {
-
         String result = "";
         String previous = "";
 
@@ -14,7 +13,7 @@ public class Mommy {
 
             for (String letter : word.split("")) {
 
-                if (isVowel(previous)) {
+                if (isVowel(previous) && isVowel(letter)) {
                     result += "";
                 } else if (isVowel(letter)) {
                     result += "mommy";
