@@ -7,13 +7,29 @@ import java.util.List;
  */
 public class Mommy {
     public String mommyficar(String word) {
-        List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
 
-        if (vowelList.contains(word)) {
-            return "mommy";
-        } else {
-            return word;
+        String result = "";
+
+        String previous = "";
+
+        for (String letter : word.split("")) {
+
+            if (isVowel(previous)) {
+                result += "";
+            } else if (isVowel(letter)) {
+                result += "mommy";
+            } else {
+                result += letter;
+            }
+            previous = letter;
         }
 
+        return result;
+    }
+
+    public boolean isVowel(String letter) {
+        List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
+
+        return vowelList.contains(letter);
     }
 }
