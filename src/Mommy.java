@@ -10,19 +10,23 @@ public class Mommy {
         String result = "";
         String previous = "";
 
-        for (String letter : word.split("")) {
+        if (vowelsGreaterThanOneThird(word)) {
 
-            if (isVowel(previous)) {
-                result += "";
-            } else if (isVowel(letter)) {
-                result += "mommy";
-            } else {
-                result += letter;
+            for (String letter : word.split("")) {
+
+                if (isVowel(previous)) {
+                    result += "";
+                } else if (isVowel(letter)) {
+                    result += "mommy";
+                } else {
+                    result += letter;
+                }
+                previous = letter;
             }
-            previous = letter;
+            return result;
+        } else {
+            return word;
         }
-
-        return result;
     }
 
     public boolean isVowel(String letter) {

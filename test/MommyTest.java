@@ -46,4 +46,11 @@ public class MommyTest {
         assertFalse(mommy.vowelsGreaterThanOneThird("his"));
         assertTrue(mommy.vowelsGreaterThanOneThird("hear"));
     }
+
+    @Test
+    public void shouldNotMommyWordWhenVowelIsEqualToOneThirdTheLengthOfString() {
+        Mommy mommy = new Mommy();
+
+        assertEquals("his", mommy.mommy("his"));
+    }
 }
