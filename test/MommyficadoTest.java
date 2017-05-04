@@ -17,4 +17,12 @@ public class MommyficadoTest {
 
         assertEquals("mommy", mommy.mommyficar("a"));
     }
+
+    @Test
+
+    public void shouldNotMommyficarASingleNonVowelLetter() {
+        Mommy mommy = new Mommy();
+
+        assertEquals("c", mommy.mommyficar("c"));
+    }
 }
