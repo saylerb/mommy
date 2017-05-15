@@ -3,30 +3,38 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Mommy {
+    public static final String OUTPUT_WORD = "mommy";
+    public static final double THRESHOLD = 0.30;
     private final List<String> vowelList = Arrays.asList("a", "e", "i", "o", "u");
 
     public String mommy(String word) {
-        String result = "";
-        String previous = "";
-
         if (vowelsGreaterThanOneThird(word)) {
-
-            for (String letter : word.split("")) {
-
-                if (isVowel(previous) && isVowel(letter)) {
-                    result += "";
-                } else if (isVowel(letter)) {
-                    result += "mommy";
-                } else {
-                    result += letter;
-                }
-                previous = letter;
-            }
-            return result;
+            return replaceLetters(word);
         } else {
             return word;
         }
     }
+
+    private String getLetterReplacement(String previousLetter, String currentLetter) {
+        if (isVowel(previousLetter) && isVowel(currentLetter)) {
+            return "";
+        } else if (isVowel(currentLetter)) {
+            return OUTPUT_WORD;
+        } else {
+            return currentLetter;
+        }
+    };
+
+    private String replaceLetters(String word) {
+        String result = "";
+        String previous = "";
+
+        for (String letter : word.split("")) {
+            result += getLetterReplacement(previous,letter);
+            previous = letter;
+        }
+        return result;
+    };
 
     public boolean isVowel(String letter) {
         return vowelList.contains(letter);
@@ -40,6 +48,6 @@ public class Mommy {
                 count++;
             }
         }
-        return Math.round(count / word.length()) > 0.33;
+        return Math.round(count / word.length()) > THRESHOLD;
     }
 }
